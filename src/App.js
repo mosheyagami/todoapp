@@ -132,8 +132,8 @@ const handleComplete = (index)=>{
                   </div>
                   
                   <div>
-                    <AiOutlineDelete className="icon" onClick={()=>handleDeleteTodo(index)}/>
-                    <BsCheckLg className="check-icon" onClick={()=>handleComplete(index)}/>
+                    <AiOutlineDelete className="icon" title="Delete" onClick={()=>handleDeleteTodo(index)}/>
+                    <BsCheckLg className="check-icon"title="Completed" onClick={()=>handleComplete(index)}/>
                   </div>
                   </div>
                 )
@@ -150,11 +150,11 @@ const handleComplete = (index)=>{
                   </div>
                   
                   <div>
-                    <AiOutlineDelete className="icon" onClick={()=>handleDeleteCompletedTodo(index)}/>
-                    <AiOutlineUndo className="undoBtn" onClick={() => handleUndoComplete(index)}/>
+                    <AiOutlineDelete className="icon" title="Delete" onClick={()=>handleDeleteCompletedTodo(index)}/>
+                    <AiOutlineUndo className="undoBtn" title="Undo" onClick={() => handleUndoComplete(index)}/>
                   </div>
-                  
-
+                
+                
                   </div>
                 )
               })}
