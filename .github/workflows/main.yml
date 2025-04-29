@@ -146,7 +146,7 @@ jobs:
       - name: Checkout GitOps Repo
         uses: actions/checkout@v4
         with:
-          repository: khumozin/todo-gitops-config
+          repository: mosheyagami/todo-gitops-config
           ref: main
           token: ${{ secrets.TODOAPP_PAT }}
 
