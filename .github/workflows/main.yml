@@ -133,7 +133,7 @@ jobs:
       - name: Scan Docker image for vulnerabilities with Trivy
         uses: aquasecurity/trivy-action@master
         with:
-            image-ref: ${{ secrets.DOCKER_USERNAME }}/todo:latest
+            image-ref: ${{ secrets.DOCKER_USERNAME }}/todoapp:latest
             format: "github"
             output: "dependency-results.sbom.json"
             severity: "CRITICAL,HIGH"
@@ -153,7 +153,7 @@ jobs:
       - name: GitOps - Update Deployment Manifest
         run: |
           cd dev
-          sed -i "s|image:.*|image: ${{ secrets.DOCKER_USERNAME }}/todo:v${{ needs.semantic-release.outputs.pkg-version }}|" deployment.yml
+          sed -i "s|image:.*|image: ${{ secrets.DOCKER_USERNAME }}/todoapp:v${{ needs.semantic-release.outputs.pkg-version }}|" deployment.yml
 
       - name: Commit and push changes
         run: |
