@@ -153,12 +153,12 @@ jobs:
       - name: GitOps - Update Deployment Manifest
         run: |
           cd dev
-          sed -i "s|image:.*|image: ${{ secrets.DOCKER_USERNAME }}/todoapp:v${{ needs.semantic-release.outputs.pkg-version }}|" deployment.yml
+          sed -i "s|image:.*|image: ${{ secrets.DOCKER_USERNAME }}/todoapp:v${{ needs.semantic-release.outputs.pkg-version }}|" core.yaml
 
       - name: Commit and push changes
         run: |
           git config --local user.name "GitHub Actions"
           git config --local user.email "actions@github.com"
-          git add dev/deployment.yml
+          git add dev/core.yaml
           git commit -m "chore: bump image version to v${{ needs.semantic-release.outputs.pkg-version }}"
           git push
